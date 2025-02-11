@@ -1,10 +1,9 @@
 import streamlit as st
 from transformers import pipeline
 
-# Load a pre-trained Hugging Face model for medical question answering
+
 chatbot = pipeline("question-answering", model="deepset/roberta-base-squad2")
 
-# Define a healthcare-specific response function
 def healthcare_chatbot(user_input):
     # Predefined responses for specific keywords
     keywords = {
@@ -18,7 +17,7 @@ def healthcare_chatbot(user_input):
         if key in user_input.lower():
             return response
 
-    # Provide a medical context for better responses
+ 
     medical_context = """
     I am a healthcare assistant trained to provide general medical guidance. However, I am not a doctor.
     Always consult a medical professional for serious health concerns.
